@@ -17,7 +17,7 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public Member findMember(Long memberId) {
+    public Member findMember(Long memberId) throws IllegalStateException {
         memberRepository.findById(memberId).ifPresentOrElse((e) -> {
             System.out.println(e.getName());
         }, new Runnable() {
