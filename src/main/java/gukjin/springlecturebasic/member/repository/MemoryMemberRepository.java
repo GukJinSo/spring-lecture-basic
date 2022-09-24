@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class MemoryMemberRepository implements MemberRepository {
 
-    private static Map<Long, Member> store = new HashMap<>();
+    public static Map<Long, Member> store = new HashMap<>();
 
     @Override
     public void save(Member member) {
@@ -16,7 +16,8 @@ public class MemoryMemberRepository implements MemberRepository {
     }
 
     @Override
-    public Optional<Member> findById(Long memberId) {
-        return Optional.ofNullable(store.get(memberId));
+    public Member findById(Long memberId) {
+        return store.get(memberId);
     }
+
 }
