@@ -1,5 +1,6 @@
 package gukjin.springlecturebasic.config;
 
+import gukjin.springlecturebasic.discount.DiscountPolicy;
 import gukjin.springlecturebasic.discount.FixDiscountPolicy;
 import gukjin.springlecturebasic.discount.RateDiscountPolicy;
 import gukjin.springlecturebasic.member.repository.MemberRepository;
@@ -12,10 +13,18 @@ import gukjin.springlecturebasic.order.OrderServiceImpl;
 public class AppConfig {
 
     public MemberService memberService() {
-        return new MemberServiceImpl(new MemoryMemberRepository());
+        return new MemberServiceImpl(memberRepository());
+    }
+
+    private MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
     }
 
     public OrderService orderService(){
-        return new OrderServiceImpl(new MemoryMemberRepository(), new FixDiscountPolicy());
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
+    }
+
+    private DiscountPolicy discountPolicy() {
+        return new RateDiscountPolicy();
     }
 }
