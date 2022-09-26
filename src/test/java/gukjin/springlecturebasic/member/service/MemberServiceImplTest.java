@@ -20,6 +20,7 @@ class MemberServiceImplTest {
     @BeforeEach
     void beforeEach(){
         memberService = new AppConfig().memberService();
+
     }
     @Test
     void join(){
