@@ -1,5 +1,6 @@
 package gukjin.springlecturebasic.order;
 
+import gukjin.springlecturebasic.annotation.MainDiscountPolicy;
 import gukjin.springlecturebasic.discount.DiscountPolicy;
 import gukjin.springlecturebasic.discount.FixDiscountPolicy;
 import gukjin.springlecturebasic.member.domain.Member;
@@ -16,7 +17,7 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
 
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }

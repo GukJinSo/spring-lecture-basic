@@ -1,10 +1,12 @@
 package gukjin.springlecturebasic.discount;
 
+import gukjin.springlecturebasic.annotation.MainDiscountPolicy;
 import gukjin.springlecturebasic.member.domain.Grade;
 import gukjin.springlecturebasic.member.domain.Member;
 import org.springframework.stereotype.Component;
 
 @Component
+@MainDiscountPolicy
 public class RateDiscountPolicy implements DiscountPolicy{
 
 
